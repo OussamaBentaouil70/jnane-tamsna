@@ -1,0 +1,320 @@
+@import "tailwindcss";
+
+@theme {
+  /* ---- Typography: classical serif body + restrained display sans ---- */
+  --font-display: "Jost", "Century Gothic", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-sans: "Cormorant Garamond", Georgia, serif;
+  --font-arabic: "Amiri", serif;
+
+  /* ---- Jnane Tamsna palette ---- */
+  --color-sage: #d1d4bc; /* primary / brand accent */
+  --color-canvas: #333333; /* dark canvas, header, hero */
+  --color-white: #ffffff;
+  --color-ink: #ffffff; /* heading text on dark */
+  --color-muted-rose: #241314; /* muted text / deep accent */
+  --color-warm: #b8ad85; /* accent warm */
+  --color-cream: #f3f2ed; /* neutral surface */
+  --color-black: #000000;
+  --color-soft-sage: #e5e7d8; /* hover tint for the sage accent */
+  --color-rose-border: #dcccc0; /* error tint */
+  --color-field: #fcfcfa; /* form field background */
+
+  --animate-marquee: marquee 46s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-sage);
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---- Typography scale ---- */
+.type-display {
+  font-family: var(--font-display);
+  font-size: 1.875rem;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: 0.75px;
+}
+
+.type-h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0.5px;
+}
+
+.type-h3 {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.63;
+}
+
+.type-label {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.type-body-lg {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.63;
+}
+
+.type-body-xl {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.63;
+}
+
+.type-body-md {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.type-body-sm {
+  font-family: var(--font-serif);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.43;
+}
+
+/* ---- Buttons: sharp outline, never rounded ---- */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 34px;
+  padding: 6px 24px;
+  border: 1px solid var(--color-canvas);
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-canvas);
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1.43;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+.btn-outline:hover {
+  background-color: var(--color-canvas);
+  color: var(--color-white);
+}
+.btn-outline:focus-visible {
+  outline: 1px solid var(--color-canvas);
+  outline-offset: 3px;
+}
+
+.btn-outline-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 34px;
+  padding: 8px 24px;
+  border: 1px solid var(--color-white);
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1.43;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+.btn-outline-light:hover {
+  background-color: var(--color-white);
+  color: var(--color-canvas);
+}
+.btn-outline-light:focus-visible {
+  outline: 1px solid var(--color-white);
+  outline-offset: 3px;
+}
+
+.btn-sage {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 34px;
+  padding: 8px 24px;
+  border: 1px solid var(--color-sage);
+  border-radius: 0;
+  background-color: var(--color-sage);
+  color: var(--color-canvas);
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.43;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.btn-sage:hover {
+  background-color: var(--color-soft-sage);
+  border-color: var(--color-soft-sage);
+}
+.btn-sage:focus-visible {
+  outline: 1px solid var(--color-sage);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--color-sage);
+  color: var(--color-canvas);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-canvas);
+}
+::-webkit-scrollbar-thumb {
+  background: #5c5c5a;
+  border: 2px solid var(--color-canvas);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sage);
+}
+
+/* ---------- Decorative utilities ---------- */
+
+/* Eight-pointed khatam lattice in the brand's sage tone */
+@utility pattern-zellige {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23d1d4bc' stroke-width='1'%3E%3Crect x='19' y='19' width='26' height='26'/%3E%3Crect x='19' y='19' width='26' height='26' transform='rotate(45 32 32)'/%3E%3Ccircle cx='32' cy='32' r='2.2'/%3E%3Cpath d='M0 32h10M54 32h10M32 0v10M32 54v10'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 64px 64px;
+}
+
+/* Dark lattice for light surfaces */
+@utility pattern-zellige-dark {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23333333' stroke-width='1'%3E%3Crect x='19' y='19' width='26' height='26'/%3E%3Crect x='19' y='19' width='26' height='26' transform='rotate(45 32 32)'/%3E%3Ccircle cx='32' cy='32' r='2.2'/%3E%3Cpath d='M0 32h10M54 32h10M32 0v10M32 54v10'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 64px 64px;
+}
+
+/* Botanical texture */
+@utility texture-linen {
+  background-image:
+    repeating-linear-gradient(0deg, rgba(36, 19, 20, 0.02) 0px, rgba(36, 19, 20, 0.02) 1px, transparent 1px, transparent 4px),
+    repeating-linear-gradient(90deg, rgba(36, 19, 20, 0.02) 0px, rgba(36, 19, 20, 0.02) 1px, transparent 1px, transparent 4px);
+}
+
+/* Moroccan arched frame, sharp where it meets the page */
+@utility arch {
+  border-radius: 999px 999px 0 0;
+}
+
+/* Soft garden light */
+@utility garden-light {
+  background-image:
+    radial-gradient(ellipse 48% 38% at 18% 8%, rgba(255, 248, 226, 0.24), transparent 70%),
+    radial-gradient(ellipse 38% 30% at 82% 28%, rgba(209, 212, 188, 0.16), transparent 72%);
+}
+
+/* ---------- Form fields: sharp, hairline bordered ---------- */
+
+.field {
+  width: 100%;
+  min-height: 44px;
+  background-color: var(--color-field);
+  border: 1px solid #d9d9d7;
+  border-radius: 0;
+  padding: 10px 12px;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #241314;
+  outline: none;
+  transition: border-color 0.2s ease;
+  color-scheme: light;
+}
+.field::placeholder {
+  color: #70706e;
+  font-weight: 400;
+}
+.field:focus {
+  border-color: var(--color-canvas);
+}
+.field-error {
+  border-color: #a1473c;
+}
+
+.field-label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #5f5f5b;
+  margin-bottom: 6px;
+}
+
+.field-label-light {
+  color: var(--color-sage);
+}
+
+select.field {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23333333' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+  padding-right: 2.3rem;
+}
+
+input[type="date"].field::-webkit-calendar-picker-indicator {
+  opacity: 0.55;
+  cursor: pointer;
+}
+
+/* Dark header used above the hero, per the design band guidance */
+.site-header {
+  height: 64px;
+  background-color: rgba(51, 51, 51, 0.95);
+  color: var(--color-sage);
+}
+.site-header-solid {
+  background-color: #ffffff;
+  color: var(--color-canvas);
+  border-bottom: 1px solid #d9d9d7;
+}
+
+.type-body-sm-strong {
+  font-family: var(--font-serif);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.43;
+}
